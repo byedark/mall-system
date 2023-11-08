@@ -12,8 +12,14 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>mall-member</name>
 	<description>mall-member</description>
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
 
-	<build>
+    <build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
