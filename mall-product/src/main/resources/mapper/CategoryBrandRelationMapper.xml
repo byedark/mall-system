@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiatian.mallproduct.mapper.CategoryBrandRelationMapper">
+
+    <resultMap id="BaseResultMap" type="com.xiatian.mallproduct.entity.CategoryBrandRelation">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="brandId" column="brand_id" jdbcType="BIGINT"/>
+            <result property="catelogId" column="catelog_id" jdbcType="BIGINT"/>
+            <result property="brandName" column="brand_name" jdbcType="VARCHAR"/>
+            <result property="catelogName" column="catelog_name" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,brand_id,catelog_id,
+        brand_name,catelog_name
+    </sql>
+</mapper>

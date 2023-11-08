@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiatian.mallmember.mapper.MemberMapper">
+
+    <resultMap id="BaseResultMap" type="com.xiatian.mallmember.entity.Member">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="levelId" column="level_id" jdbcType="BIGINT"/>
+            <result property="username" column="username" jdbcType="CHAR"/>
+            <result property="password" column="password" jdbcType="VARCHAR"/>
+            <result property="nickname" column="nickname" jdbcType="VARCHAR"/>
+            <result property="mobile" column="mobile" jdbcType="VARCHAR"/>
+            <result property="email" column="email" jdbcType="VARCHAR"/>
+            <result property="header" column="header" jdbcType="VARCHAR"/>
+            <result property="gender" column="gender" jdbcType="TINYINT"/>
+            <result property="birth" column="birth" jdbcType="DATE"/>
+            <result property="city" column="city" jdbcType="VARCHAR"/>
+            <result property="job" column="job" jdbcType="VARCHAR"/>
+            <result property="sign" column="sign" jdbcType="VARCHAR"/>
+            <result property="sourceType" column="source_type" jdbcType="TINYINT"/>
+            <result property="integration" column="integration" jdbcType="INTEGER"/>
+            <result property="growth" column="growth" jdbcType="INTEGER"/>
+            <result property="status" column="status" jdbcType="TINYINT"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,level_id,username,
+        password,nickname,mobile,
+        email,header,gender,
+        birth,city,job,
+        sign,source_type,integration,
+        growth,status,create_time
+    </sql>
+</mapper>

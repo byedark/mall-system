@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiatian.mallproduct.mapper.AttrMapper">
+
+    <resultMap id="BaseResultMap" type="com.xiatian.mallproduct.entity.Attr">
+            <id property="attrId" column="attr_id" jdbcType="BIGINT"/>
+            <result property="attrName" column="attr_name" jdbcType="CHAR"/>
+            <result property="searchType" column="search_type" jdbcType="TINYINT"/>
+            <result property="valueType" column="value_type" jdbcType="TINYINT"/>
+            <result property="icon" column="icon" jdbcType="VARCHAR"/>
+            <result property="valueSelect" column="value_select" jdbcType="CHAR"/>
+            <result property="attrType" column="attr_type" jdbcType="TINYINT"/>
+            <result property="enable" column="enable" jdbcType="BIGINT"/>
+            <result property="catelogId" column="catelog_id" jdbcType="BIGINT"/>
+            <result property="showDesc" column="show_desc" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        attr_id,attr_name,search_type,
+        value_type,icon,value_select,
+        attr_type,enable,catelog_id,
+        show_desc
+    </sql>
+</mapper>

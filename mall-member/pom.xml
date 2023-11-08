@@ -7,14 +7,11 @@
 		<artifactId>mall</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
+
 	<artifactId>mall-member</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>mall-member</name>
 	<description>mall-member</description>
-	<properties>
-		<java.version>1.8</java.version>
-		<spring-cloud.version>2021.0.8</spring-cloud.version>
-	</properties>
 
 	<build>
 		<plugins>

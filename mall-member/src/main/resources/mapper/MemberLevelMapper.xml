@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiatian.mallmember.mapper.MemberLevelMapper">
+
+    <resultMap id="BaseResultMap" type="com.xiatian.mallmember.entity.MemberLevel">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="growthPoint" column="growth_point" jdbcType="INTEGER"/>
+            <result property="defaultStatus" column="default_status" jdbcType="TINYINT"/>
+            <result property="freeFreightPoint" column="free_freight_point" jdbcType="DECIMAL"/>
+            <result property="commentGrowthPoint" column="comment_growth_point" jdbcType="INTEGER"/>
+            <result property="priviledgeFreeFreight" column="priviledge_free_freight" jdbcType="TINYINT"/>
+            <result property="priviledgeMemberPrice" column="priviledge_member_price" jdbcType="TINYINT"/>
+            <result property="priviledgeBirthday" column="priviledge_birthday" jdbcType="TINYINT"/>
+            <result property="note" column="note" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,name,growth_point,
+        default_status,free_freight_point,comment_growth_point,
+        priviledge_free_freight,priviledge_member_price,priviledge_birthday,
+        note
+    </sql>
+</mapper>

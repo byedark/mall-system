@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiatian.mallcoupon.mapper.HomeSubjectSpuMapper">
+
+    <resultMap id="BaseResultMap" type="com.xiatian.mallcoupon.entity.HomeSubjectSpu">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="subjectId" column="subject_id" jdbcType="BIGINT"/>
+            <result property="spuId" column="spu_id" jdbcType="BIGINT"/>
+            <result property="sort" column="sort" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,name,subject_id,
+        spu_id,sort
+    </sql>
+</mapper>

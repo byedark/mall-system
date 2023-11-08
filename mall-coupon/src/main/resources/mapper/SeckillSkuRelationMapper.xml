@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiatian.mallcoupon.mapper.SeckillSkuRelationMapper">
+
+    <resultMap id="BaseResultMap" type="com.xiatian.mallcoupon.entity.SeckillSkuRelation">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="promotionId" column="promotion_id" jdbcType="BIGINT"/>
+            <result property="promotionSessionId" column="promotion_session_id" jdbcType="BIGINT"/>
+            <result property="skuId" column="sku_id" jdbcType="BIGINT"/>
+            <result property="seckillPrice" column="seckill_price" jdbcType="DECIMAL"/>
+            <result property="seckillCount" column="seckill_count" jdbcType="DECIMAL"/>
+            <result property="seckillLimit" column="seckill_limit" jdbcType="DECIMAL"/>
+            <result property="seckillSort" column="seckill_sort" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,promotion_id,promotion_session_id,
+        sku_id,seckill_price,seckill_count,
+        seckill_limit,seckill_sort
+    </sql>
+</mapper>

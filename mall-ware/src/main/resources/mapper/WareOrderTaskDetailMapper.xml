@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiatian.mallware.mapper.WareOrderTaskDetailMapper">
+
+    <resultMap id="BaseResultMap" type="com.xiatian.mallware.entity.WareOrderTaskDetail">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="skuId" column="sku_id" jdbcType="BIGINT"/>
+            <result property="skuName" column="sku_name" jdbcType="VARCHAR"/>
+            <result property="skuNum" column="sku_num" jdbcType="INTEGER"/>
+            <result property="taskId" column="task_id" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,sku_id,sku_name,
+        sku_num,task_id
+    </sql>
+</mapper>

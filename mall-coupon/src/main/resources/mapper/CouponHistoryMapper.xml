@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiatian.mallcoupon.mapper.CouponHistoryMapper">
+
+    <resultMap id="BaseResultMap" type="com.xiatian.mallcoupon.entity.CouponHistory">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="couponId" column="coupon_id" jdbcType="BIGINT"/>
+            <result property="memberId" column="member_id" jdbcType="BIGINT"/>
+            <result property="memberNickName" column="member_nick_name" jdbcType="VARCHAR"/>
+            <result property="getType" column="get_type" jdbcType="TINYINT"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="useType" column="use_type" jdbcType="TINYINT"/>
+            <result property="useTime" column="use_time" jdbcType="TIMESTAMP"/>
+            <result property="orderId" column="order_id" jdbcType="BIGINT"/>
+            <result property="orderSn" column="order_sn" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,coupon_id,member_id,
+        member_nick_name,get_type,create_time,
+        use_type,use_time,order_id,
+        order_sn
+    </sql>
+</mapper>
