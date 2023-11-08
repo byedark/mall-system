@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiatian.mallcoupon.mapper.CouponMapper">
+
+    <resultMap id="BaseResultMap" type="com.xiatian.mallcoupon.entity.Coupon">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="couponType" column="coupon_type" jdbcType="TINYINT"/>
+            <result property="couponImg" column="coupon_img" jdbcType="VARCHAR"/>
+            <result property="couponName" column="coupon_name" jdbcType="VARCHAR"/>
+            <result property="num" column="num" jdbcType="INTEGER"/>
+            <result property="amount" column="amount" jdbcType="DECIMAL"/>
+            <result property="perLimit" column="per_limit" jdbcType="INTEGER"/>
+            <result property="minPoint" column="min_point" jdbcType="DECIMAL"/>
+            <result property="startTime" column="start_time" jdbcType="TIMESTAMP"/>
+            <result property="endTime" column="end_time" jdbcType="TIMESTAMP"/>
+            <result property="useType" column="use_type" jdbcType="TINYINT"/>
+            <result property="note" column="note" jdbcType="VARCHAR"/>
+            <result property="publishCount" column="publish_count" jdbcType="INTEGER"/>
+            <result property="useCount" column="use_count" jdbcType="INTEGER"/>
+            <result property="receiveCount" column="receive_count" jdbcType="INTEGER"/>
+            <result property="enableStartTime" column="enable_start_time" jdbcType="TIMESTAMP"/>
+            <result property="enableEndTime" column="enable_end_time" jdbcType="TIMESTAMP"/>
+            <result property="code" column="code" jdbcType="VARCHAR"/>
+            <result property="memberLevel" column="member_level" jdbcType="TINYINT"/>
+            <result property="publish" column="publish" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,coupon_type,coupon_img,
+        coupon_name,num,amount,
+        per_limit,min_point,start_time,
+        end_time,use_type,note,
+        publish_count,use_count,receive_count,
+        enable_start_time,enable_end_time,code,
+        member_level,publish
+    </sql>
+</mapper>

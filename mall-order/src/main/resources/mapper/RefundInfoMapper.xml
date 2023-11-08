@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiatian.mallorder.mapper.RefundInfoMapper">
+
+    <resultMap id="BaseResultMap" type="com.xiatian.mallorder.entity.RefundInfo">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="orderReturnId" column="order_return_id" jdbcType="BIGINT"/>
+            <result property="refund" column="refund" jdbcType="DECIMAL"/>
+            <result property="refundSn" column="refund_sn" jdbcType="VARCHAR"/>
+            <result property="refundStatus" column="refund_status" jdbcType="TINYINT"/>
+            <result property="refundChannel" column="refund_channel" jdbcType="TINYINT"/>
+            <result property="refundContent" column="refund_content" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,order_return_id,refund,
+        refund_sn,refund_status,refund_channel,
+        refund_content
+    </sql>
+</mapper>

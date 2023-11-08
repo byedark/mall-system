@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiatian.mallcoupon.mapper.SeckillSkuNoticeMapper">
+
+    <resultMap id="BaseResultMap" type="com.xiatian.mallcoupon.entity.SeckillSkuNotice">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="memberId" column="member_id" jdbcType="BIGINT"/>
+            <result property="skuId" column="sku_id" jdbcType="BIGINT"/>
+            <result property="sessionId" column="session_id" jdbcType="BIGINT"/>
+            <result property="subcribeTime" column="subcribe_time" jdbcType="TIMESTAMP"/>
+            <result property="sendTime" column="send_time" jdbcType="TIMESTAMP"/>
+            <result property="noticeType" column="notice_type" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,member_id,sku_id,
+        session_id,subcribe_time,send_time,
+        notice_type
+    </sql>
+</mapper>

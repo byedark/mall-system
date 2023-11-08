@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiatian.mallproduct.mapper.SpuCommentMapper">
+
+    <resultMap id="BaseResultMap" type="com.xiatian.mallproduct.entity.SpuComment">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="skuId" column="sku_id" jdbcType="BIGINT"/>
+            <result property="spuId" column="spu_id" jdbcType="BIGINT"/>
+            <result property="spuName" column="spu_name" jdbcType="VARCHAR"/>
+            <result property="memberNickName" column="member_nick_name" jdbcType="VARCHAR"/>
+            <result property="star" column="star" jdbcType="TINYINT"/>
+            <result property="memberIp" column="member_ip" jdbcType="VARCHAR"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="showStatus" column="show_status" jdbcType="TINYINT"/>
+            <result property="spuAttributes" column="spu_attributes" jdbcType="VARCHAR"/>
+            <result property="likesCount" column="likes_count" jdbcType="INTEGER"/>
+            <result property="replyCount" column="reply_count" jdbcType="INTEGER"/>
+            <result property="resources" column="resources" jdbcType="VARCHAR"/>
+            <result property="content" column="content" jdbcType="VARCHAR"/>
+            <result property="memberIcon" column="member_icon" jdbcType="VARCHAR"/>
+            <result property="commentType" column="comment_type" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,sku_id,spu_id,
+        spu_name,member_nick_name,star,
+        member_ip,create_time,show_status,
+        spu_attributes,likes_count,reply_count,
+        resources,content,member_icon,
+        comment_type
+    </sql>
+</mapper>

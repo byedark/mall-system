@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiatian.mallorder.mapper.OrderMapper">
+
+    <resultMap id="BaseResultMap" type="com.xiatian.mallorder.entity.Order">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="memberId" column="member_id" jdbcType="BIGINT"/>
+            <result property="orderSn" column="order_sn" jdbcType="CHAR"/>
+            <result property="couponId" column="coupon_id" jdbcType="BIGINT"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="memberUsername" column="member_username" jdbcType="VARCHAR"/>
+            <result property="totalAmount" column="total_amount" jdbcType="DECIMAL"/>
+            <result property="payAmount" column="pay_amount" jdbcType="DECIMAL"/>
+            <result property="freightAmount" column="freight_amount" jdbcType="DECIMAL"/>
+            <result property="promotionAmount" column="promotion_amount" jdbcType="DECIMAL"/>
+            <result property="integrationAmount" column="integration_amount" jdbcType="DECIMAL"/>
+            <result property="couponAmount" column="coupon_amount" jdbcType="DECIMAL"/>
+            <result property="discountAmount" column="discount_amount" jdbcType="DECIMAL"/>
+            <result property="payType" column="pay_type" jdbcType="TINYINT"/>
+            <result property="sourceType" column="source_type" jdbcType="TINYINT"/>
+            <result property="status" column="status" jdbcType="TINYINT"/>
+            <result property="deliveryCompany" column="delivery_company" jdbcType="VARCHAR"/>
+            <result property="deliverySn" column="delivery_sn" jdbcType="VARCHAR"/>
+            <result property="autoConfirmDay" column="auto_confirm_day" jdbcType="INTEGER"/>
+            <result property="integration" column="integration" jdbcType="INTEGER"/>
+            <result property="growth" column="growth" jdbcType="INTEGER"/>
+            <result property="billType" column="bill_type" jdbcType="TINYINT"/>
+            <result property="billHeader" column="bill_header" jdbcType="VARCHAR"/>
+            <result property="billContent" column="bill_content" jdbcType="VARCHAR"/>
+            <result property="billReceiverPhone" column="bill_receiver_phone" jdbcType="VARCHAR"/>
+            <result property="billReceiverEmail" column="bill_receiver_email" jdbcType="VARCHAR"/>
+            <result property="receiverName" column="receiver_name" jdbcType="VARCHAR"/>
+            <result property="receiverPhone" column="receiver_phone" jdbcType="VARCHAR"/>
+            <result property="receiverPostCode" column="receiver_post_code" jdbcType="VARCHAR"/>
+            <result property="receiverProvince" column="receiver_province" jdbcType="VARCHAR"/>
+            <result property="receiverCity" column="receiver_city" jdbcType="VARCHAR"/>
+            <result property="receiverRegion" column="receiver_region" jdbcType="VARCHAR"/>
+            <result property="receiverDetailAddress" column="receiver_detail_address" jdbcType="VARCHAR"/>
+            <result property="note" column="note" jdbcType="VARCHAR"/>
+            <result property="confirmStatus" column="confirm_status" jdbcType="TINYINT"/>
+            <result property="deleteStatus" column="delete_status" jdbcType="TINYINT"/>
+            <result property="useIntegration" column="use_integration" jdbcType="INTEGER"/>
+            <result property="paymentTime" column="payment_time" jdbcType="TIMESTAMP"/>
+            <result property="deliveryTime" column="delivery_time" jdbcType="TIMESTAMP"/>
+            <result property="receiveTime" column="receive_time" jdbcType="TIMESTAMP"/>
+            <result property="commentTime" column="comment_time" jdbcType="TIMESTAMP"/>
+            <result property="modifyTime" column="modify_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,member_id,order_sn,
+        coupon_id,create_time,member_username,
+        total_amount,pay_amount,freight_amount,
+        promotion_amount,integration_amount,coupon_amount,
+        discount_amount,pay_type,source_type,
+        status,delivery_company,delivery_sn,
+        auto_confirm_day,integration,growth,
+        bill_type,bill_header,bill_content,
+        bill_receiver_phone,bill_receiver_email,receiver_name,
+        receiver_phone,receiver_post_code,receiver_province,
+        receiver_city,receiver_region,receiver_detail_address,
+        note,confirm_status,delete_status,
+        use_integration,payment_time,delivery_time,
+        receive_time,comment_time,modify_time
+    </sql>
+</mapper>

@@ -7,14 +7,14 @@
         <artifactId>mall</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
+
+
     <artifactId>mall-order</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>mall-order</name>
     <description>mall-order</description>
-    <properties>
-        <java.version>1.8</java.version>
-        <spring-cloud.version>2021.0.8</spring-cloud.version>
-    </properties>
+
+
     <build>
         <plugins>
             <plugin>
