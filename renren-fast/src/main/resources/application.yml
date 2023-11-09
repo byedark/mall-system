@@ -11,6 +11,11 @@ server:
     context-path: /renren-fast
 
 spring:
+  cloud:
+    nacos:
+      serverAddr: 43.143.154.173:8848
+  application:
+    name: renren-fast
   # 环境 dev|test|prod
   profiles:
     active: dev
@@ -23,8 +28,6 @@ spring:
       max-file-size: 100MB
       max-request-size: 100MB
       enabled: true
-  application:
-    name: renren-fast
   mvc:
     throw-exception-if-no-handler-found: true
     pathmatch:

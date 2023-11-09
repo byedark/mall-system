@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * 商品三级分类
@@ -57,6 +58,17 @@ public class Category implements Serializable {
      * 商品数量
      */
     private Integer productCount;
+
+    @TableField(exist = false)
+    private List<Category> Children;
+
+    public List<Category> getChildren() {
+        return Children;
+    }
+
+    public void setChildren(List<Category> children) {
+        Children = children;
+    }
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

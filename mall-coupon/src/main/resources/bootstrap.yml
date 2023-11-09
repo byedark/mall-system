@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    nacos:
+      serverAddr: 43.143.154.173:8848
+
+  application:
+    name: coupon

@@ -6,23 +6,31 @@
 		<groupId>com.xiatian</groupId>
 		<artifactId>mall</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
+
 	</parent>
-	<artifactId>mall-coupon</artifactId>
+
+	<artifactId>mall-gateway</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>mall-coupon</name>
-	<description>mall-coupon</description>
-    <dependencies>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
+	<name>mall-gateway</name>
+	<description>mall-gateway</description>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-gateway</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+			<artifactId>spring-boot-starter-webflux</artifactId>
 		</dependency>
-    </dependencies>
+		<dependency>
+			<groupId>io.projectreactor</groupId>
+			<artifactId>reactor-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 
-    <build>
+	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
