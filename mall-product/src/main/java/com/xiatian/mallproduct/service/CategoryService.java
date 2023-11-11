@@ -2,6 +2,7 @@ package com.xiatian.mallproduct.service;
 
 import com.xiatian.mallproduct.entity.Category;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.xiatian.mallproduct.utils.Result;
 
 import java.util.List;
 
@@ -13,4 +14,6 @@ import java.util.List;
 public interface CategoryService extends IService<Category> {
 
     List<Category> listTree();
+
+    Result<String> deleteCategory(List<Long> categoryId);
 }

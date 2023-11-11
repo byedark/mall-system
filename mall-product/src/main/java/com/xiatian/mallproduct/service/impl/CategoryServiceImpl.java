@@ -5,13 +5,12 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.xiatian.mallproduct.entity.Category;
 import com.xiatian.mallproduct.service.CategoryService;
 import com.xiatian.mallproduct.mapper.CategoryMapper;
+import com.xiatian.mallproduct.utils.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -46,6 +45,13 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category>
 //                .sorted(Comparator.comparingInt(Category::getSort))
 //                .collect(Collectors.toList());
 //        //形成父子关系，进行二级列表返回
+    }
+
+    @Override
+    public Result<String> deleteCategory(List<Long> categoryId) {
+        //对数据库进行操作,实现的是逻辑删除
+        categoryMapper.deleteBatchIds(categoryId);
+        return Result.ok("ok");
     }
 
     public List<Category> getChildrens(Category parent,List<Category> listAll){

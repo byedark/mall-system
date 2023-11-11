@@ -1,10 +1,4 @@
 server:
-  tomcat:
-    uri-encoding: UTF-8
-    threads:
-      max: 1000
-      min-spare: 30
-    connection-timeout: 5000ms
   port: 88
 
 spring:
@@ -18,11 +12,23 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: renren_route
-          uri: lb://renren-fast
-          predicates:
-            - Path=/renren-fast/**
+        # 这里面有优先级问题，高优先级一定要放在前面
         - id: product_route
           uri: lb://product
           predicates:
-            - Path=/product/**
+            # 这里思考为什么api就不能被访问，因为网关的路由问题,正则表达式配上计算机网络的路由优先匹配规则
+            - Path=/api/product/**
+          filters:
+            - RewritePath=/api/product/(?<segment>.*),/product/$\{segment}
+        - id: third-party
+          uri: lb://thirdparty
+          predicates:
+            - Path=/api/thirdparty/**
+          filters:
+            - RewritePath=/api/thirdparty/(?<segment>.*),/thirdparty/$\{segment}
+        - id: renren_route
+          uri: lb://renren-fast
+          predicates:
+            - Path=/api/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/renren-fast/$\{segment}

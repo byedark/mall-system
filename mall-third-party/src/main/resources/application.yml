@@ -5,14 +5,11 @@ server:
       max: 1000
       min-spare: 30
     connection-timeout: 5000ms
-  port: 9004
+  port: 10000
   servlet:
-    context-path: /product
+    context-path: /thirdparty
 
 spring:
-  # dev|test|prod
-  profiles:
-    active: dev
   # jackson
   jackson:
     time-zone: GMT+8
@@ -23,5 +20,14 @@ spring:
       secret-key: tsqxkfBdIX7OO7wXgFemgEOt0XjFj2
       oss:
         endpoint: oss-cn-beijing.aliyuncs.com
+        bucket: mall-xiatian
     util:
       enabled: false
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://43.143.154.173:3306/mall-admin?userSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+
+
+
