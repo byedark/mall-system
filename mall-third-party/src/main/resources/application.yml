@@ -16,8 +16,8 @@ spring:
     date-format: yyyy-MM-dd HH:mm:ss
   cloud:
     alicloud:
-      access-key: LTAI5tQXq5Sd5Go9JRkyMcVd
-      secret-key: tsqxkfBdIX7OO7wXgFemgEOt0XjFj2
+      access-key: LTAI5t9djdSgxWV5mJcu4dZN
+      secret-key: MgqN7RMfDIo9skWe1MYa8D5Plz4ANA
       oss:
         endpoint: oss-cn-beijing.aliyuncs.com
         bucket: mall-xiatian

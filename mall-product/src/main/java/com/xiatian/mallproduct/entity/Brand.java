@@ -4,6 +4,12 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.xiatian.mallproduct.valid.AddApplication;
+import com.xiatian.mallproduct.valid.ListValue;
+import com.xiatian.mallproduct.valid.UpdateApplication;
+import org.hibernate.validator.constraints.URL;
+
+import javax.validation.constraints.*;
 import java.io.Serializable;
 
 /**
@@ -12,20 +18,27 @@ import java.io.Serializable;
  */
 @TableName(value ="pms_brand")
 public class Brand implements Serializable {
+
     /**
      * 品牌id
      */
+    @NotNull(message = "修改品牌ID不能为空",groups = {UpdateApplication.class})
+    @Null(message = "新增品牌时不能指定ID",groups = {AddApplication.class})
     @TableId(type = IdType.AUTO)
     private Long brandId;
 
     /**
      * 品牌名
      */
+    @NotEmpty(message = "增加品牌时分组不能为空",groups = {AddApplication.class,UpdateApplication.class})
     private String name;
 
     /**
      * 品牌logo地址
      */
+    //设置分组接口，这两个接口可以为空，主要目的就是为了配合volited接口使其可以利用接口生效
+    @NotEmpty(message = "URL地址不能空",groups = {AddApplication.class})
+    @URL(message = "不是一个合法的URL地址",groups = {AddApplication.class, UpdateApplication.class})
     private String logo;
 
     /**
@@ -36,16 +49,24 @@ public class Brand implements Serializable {
     /**
      * 显示状态[0-不显示；1-显示]
      */
+    @ListValue(vals={0,1},groups = {AddApplication.class, UpdateApplication.class})
+    @NotNull(groups = {AddApplication.class, UpdateApplication.class})
     private Integer showStatus;
 
     /**
      * 检索首字母
      */
+    @NotEmpty(groups={AddApplication.class})
+    @Pattern(regexp="^[a-zA-Z]$",message = "检索首字母必须是字母",groups =
+            {AddApplication.class, UpdateApplication.class})
     private String firstLetter;
 
     /**
      * 排序
      */
+    // NotNull常常和下面的MaxMin配合使用，因为下面的在上传为空的时候默认不生效
+    @NotNull(groups={AddApplication.class})
+    @Min(value = 0,message = "排序大于等于0",groups={AddApplication.class,UpdateApplication.class})
     private Integer sort;
 
     @TableField(exist = false)

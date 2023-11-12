@@ -5,6 +5,8 @@ import com.xiatian.mallproduct.service.BrandService;
 import com.xiatian.mallproduct.utils.PageUtils;
 import com.xiatian.mallproduct.utils.R;
 import com.xiatian.mallproduct.utils.Result;
+import com.xiatian.mallproduct.valid.AddApplication;
+import com.xiatian.mallproduct.valid.UpdateApplication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -37,11 +39,9 @@ public class BrandController {
      */
     @RequestMapping("/info/{brandId}")
     //@RequiresPermissions("product:brand:info")
-    public Result<HashMap<String, Brand>> info(@PathVariable("brandId") Long brandId){
+    public R info(@PathVariable("brandId") Long brandId){
         Brand brand = brandService.getById(brandId);
-        HashMap<String, Brand> hashMap = new HashMap<>();
-        hashMap.put("brand",brand);
-        return Result.ok(hashMap);
+        return R.ok().put("brand",brand);
     }
 
     /**
@@ -49,7 +49,8 @@ public class BrandController {
      */
     @RequestMapping("/save")
     //@RequiresPermissions("product:brand:save")
-    public Result<String> save(@RequestBody Brand brand/*,BindingResult result*/){
+    public Result<String> save(@Validated({AddApplication.class}) @RequestBody Brand brand){
+        //给分组有分组的生效没有的失效，不给分组有分组全部失效
         brandService.save(brand);
         return Result.ok("OK");
     }
@@ -59,7 +60,7 @@ public class BrandController {
      */
     @RequestMapping("/update")
     //@RequiresPermissions("product:brand:update")
-    public Result<String> update(@RequestBody Brand brand){
+    public Result<String> update(@Validated({UpdateApplication.class}) @RequestBody Brand brand){
         brandService.updateDetail(brand);
         return Result.ok("OK");
     }
