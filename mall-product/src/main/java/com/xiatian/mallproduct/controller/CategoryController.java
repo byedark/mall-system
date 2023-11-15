@@ -1,10 +1,13 @@
 package com.xiatian.mallproduct.controller;
 
 import com.baomidou.mybatisplus.extension.api.R;
+import com.xiatian.mallproduct.entity.Brand;
 import com.xiatian.mallproduct.entity.Category;
 import com.xiatian.mallproduct.service.CategoryService;
 import com.xiatian.mallproduct.utils.Result;
+import com.xiatian.mallproduct.valid.UpdateApplication;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
@@ -30,7 +33,6 @@ public class CategoryController {
     }
     @PostMapping("/save")
     public Result<String> Category(@RequestBody Category category){
-        System.out.println("增加分类");
         categoryService.save(category);
         return Result.ok("OK");
     }
@@ -47,6 +49,11 @@ public class CategoryController {
     public Result<String> Category(@RequestBody Category[] categories){
         System.out.println("拖拽排序");
         categoryService.updateBatchById(Arrays.asList(categories));
+        return Result.ok("OK");
+    }
+    @PostMapping("/update")
+    public Result<String> update(@Validated({UpdateApplication.class}) @RequestBody Category category){
+        categoryService.updateDetail(category);
         return Result.ok("OK");
     }
 }

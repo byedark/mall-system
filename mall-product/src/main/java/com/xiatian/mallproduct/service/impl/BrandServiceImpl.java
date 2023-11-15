@@ -50,6 +50,7 @@ public class BrandServiceImpl extends ServiceImpl<BrandMapper, Brand>
         return new PageUtils(page);
     }
 
+    //分类表中也有一个这个函数
     @Transactional
     @Override
     public void updateDetail(Brand brand) {

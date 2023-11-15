@@ -2,6 +2,9 @@ package com.xiatian.mallproduct.service;
 
 import com.xiatian.mallproduct.entity.AttrGroup;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.xiatian.mallproduct.utils.PageUtils;
+
+import java.util.HashMap;
 
 /**
 * @author XT189
@@ -9,5 +12,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 * @createDate 2023-11-07 15:02:23
 */
 public interface AttrGroupService extends IService<AttrGroup> {
+
+    PageUtils queryPage(HashMap<String, Object> hashMap, Long catelogId);
 
 }

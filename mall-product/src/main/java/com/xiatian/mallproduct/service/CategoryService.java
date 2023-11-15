@@ -1,5 +1,6 @@
 package com.xiatian.mallproduct.service;
 
+import com.xiatian.mallproduct.entity.Brand;
 import com.xiatian.mallproduct.entity.Category;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.xiatian.mallproduct.utils.Result;
@@ -16,4 +17,8 @@ public interface CategoryService extends IService<Category> {
     List<Category> listTree();
 
     Result<String> deleteCategory(List<Long> categoryId);
+
+    Long[] getByAttrGroupId(Long attr);
+
+    void updateDetail(Category category);
 }

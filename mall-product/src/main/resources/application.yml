@@ -25,3 +25,12 @@ spring:
         endpoint: oss-cn-beijing.aliyuncs.com
     util:
       enabled: false
+
+#mybatis-plus:
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #开启sql日志
+
+# 利用log4j进行日志输出可以不像mybatis一样输出大量的日志信息，很多的row看的十分碍眼
+logging:
+  level:
+    com.xiatian.mallproduct.mapper: debug

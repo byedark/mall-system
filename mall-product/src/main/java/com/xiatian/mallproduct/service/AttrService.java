@@ -2,6 +2,7 @@ package com.xiatian.mallproduct.service;
 
 import com.xiatian.mallproduct.entity.Attr;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.xiatian.mallproduct.vo.AttrVo;
 
 /**
 * @author XT189
@@ -10,4 +11,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface AttrService extends IService<Attr> {
 
+    void saveVo(AttrVo attr);
 }

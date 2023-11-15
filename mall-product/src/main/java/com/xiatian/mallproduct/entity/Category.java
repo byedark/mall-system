@@ -1,6 +1,7 @@
 package com.xiatian.mallproduct.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.io.Serializable;
 import java.util.List;
@@ -58,15 +59,17 @@ public class Category implements Serializable {
      */
     private Integer productCount;
 
+    //首字母小写这个注解才能够，需要严格遵守Json格式才能生效
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @TableField(exist = false)
-    private List<Category> Children;
+    private List<Category> children;
 
     public List<Category> getChildren() {
-        return Children;
+        return this.children;
     }
 
     public void setChildren(List<Category> children) {
-        Children = children;
+        this.children = children;
     }
 
     @TableField(exist = false)

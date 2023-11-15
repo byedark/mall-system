@@ -44,7 +44,11 @@ public class AttrGroup implements Serializable {
     private Long catelogId;
 
     @TableField(exist = false)
+    private Long[] catelogPath;
+
+    @TableField(exist = false)
     private static final long serialVersionUID = 1L;
+
 
     /**
      * 分组id
@@ -178,5 +182,13 @@ public class AttrGroup implements Serializable {
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
+    }
+
+    public Long[] getCatelogPath() {
+        return catelogPath;
+    }
+
+    public void setCatelogPath(Long[] catelogPath) {
+        this.catelogPath = catelogPath;
     }
 }
