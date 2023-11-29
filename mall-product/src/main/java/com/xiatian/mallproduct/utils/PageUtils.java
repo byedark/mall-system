@@ -57,7 +57,7 @@ public class PageUtils implements Serializable {
 	}
 
 	/**
-	 * 分页
+	 * 分页,就是一个数据的封装过程
 	 */
 	public PageUtils(IPage<?> page) {
 		this.list = page.getRecords();

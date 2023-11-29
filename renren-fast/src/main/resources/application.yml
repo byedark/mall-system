@@ -11,11 +11,6 @@ server:
     context-path: /renren-fast
 
 spring:
-  cloud:
-    nacos:
-      serverAddr: 43.143.154.173:8848
-  application:
-    name: renren-fast
   # 环境 dev|test|prod
   profiles:
     active: dev

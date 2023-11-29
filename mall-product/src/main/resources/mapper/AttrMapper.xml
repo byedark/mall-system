@@ -23,4 +23,10 @@
         attr_type,enable,catelog_id,
         show_desc
     </sql>
+
+
+    <select id="selectByCatelogId" resultType="com.xiatian.mallproduct.entity.Attr">
+        select * from pms_attr where catelog_id = #{catelogId};
+    </select>
+
 </mapper>

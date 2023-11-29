@@ -2,6 +2,11 @@ package com.xiatian.mallproduct.service;
 
 import com.xiatian.mallproduct.entity.ProductAttrValue;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.xiatian.mallproduct.utils.PageUtils;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.Map;
 
 /**
 * @author XT189
@@ -10,4 +15,13 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface ProductAttrValueService extends IService<ProductAttrValue> {
 
+    PageUtils queryPage(Map<String, Object> params);
+
+    void saveProductAttr(List<ProductAttrValue> collect);
+
+    List<ProductAttrValue> baseAttrListforspu(Long spuId);
+
+
+    @Transactional(rollbackFor = Exception.class)
+    void updateSpuAttr(Long spuId, List<ProductAttrValue> entities);
 }

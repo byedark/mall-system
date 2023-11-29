@@ -40,4 +40,5 @@ public class CouponController {
         System.out.println("配置中心调试");
         return Result.ok(userName);
     }
+
 }

@@ -2,6 +2,9 @@ package com.xiatian.mallproduct.mapper;
 
 import com.xiatian.mallproduct.entity.AttrAttrgroupRelation;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
 * @author XT189
@@ -11,6 +14,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 */
 public interface AttrAttrgroupRelationMapper extends BaseMapper<AttrAttrgroupRelation> {
 
+    void deleteBatchRelation(@Param("entities") List<AttrAttrgroupRelation> entities);
 }
 
 

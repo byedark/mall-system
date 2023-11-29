@@ -2,6 +2,9 @@ package com.xiatian.mallmember.service;
 
 import com.xiatian.mallmember.entity.MemberLevel;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.xiatian.mallmember.utils.PageUtils;
+
+import java.util.Map;
 
 /**
 * @author XT189
@@ -10,4 +13,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface MemberLevelService extends IService<MemberLevel> {
 
+    PageUtils findLevel(Map<String, Object> params);
 }

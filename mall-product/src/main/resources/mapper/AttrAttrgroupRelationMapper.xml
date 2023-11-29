@@ -15,4 +15,14 @@
         id,attr_id,attr_group_id,
         attr_sort
     </sql>
+
+
+    <delete id="deleteBatchRelation">
+        DELETE FROM pms_attr_attrgroup_relation WHERE
+        <foreach collection="entities" item="item" separator="OR">
+            (attr_id = #{item.attrId} AND attr_group_id = #{item.attrGroupId})
+        </foreach>
+    </delete>
+
+
 </mapper>

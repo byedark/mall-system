@@ -1,8 +1,8 @@
 package com.xiatian.mallmember.controller;
 
-import com.baomidou.mybatisplus.extension.api.R;
 import com.xiatian.mallmember.entity.Member;
 import com.xiatian.mallmember.feign.CouponFeignService;
+import com.xiatian.mallmember.utils.R;
 import com.xiatian.mallmember.utils.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,4 +30,5 @@ public class MemberController {
         msg.put("member",member);
         return Result.ok(msg);
     }
+
 }

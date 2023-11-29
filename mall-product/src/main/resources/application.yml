@@ -14,6 +14,7 @@ spring:
   profiles:
     active: dev
   # jackson
+  # 规范时间格式
   jackson:
     time-zone: GMT+8
     date-format: yyyy-MM-dd HH:mm:ss
@@ -25,6 +26,8 @@ spring:
         endpoint: oss-cn-beijing.aliyuncs.com
     util:
       enabled: false
+  thymeleaf:
+    cache: false
 
 #mybatis-plus:
 #  configuration:
@@ -34,3 +37,5 @@ spring:
 logging:
   level:
     com.xiatian.mallproduct.mapper: debug
+
+

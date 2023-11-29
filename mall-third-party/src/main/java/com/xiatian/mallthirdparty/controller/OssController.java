@@ -7,6 +7,7 @@ import com.aliyun.oss.model.PolicyConditions;
 import com.xiatian.mallthirdparty.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,9 +30,9 @@ public class OssController {
     @Value("${spring.cloud.alicloud.access-key}")
     private String accessId;
 
-    @RequestMapping("/oss/policy")
+    @GetMapping("/oss/policy")
     public R policy() {
-
+        System.out.println("第三方认证上传OSS");
         // https://mall-xiatian.oss-cn-beijing.aliyuncs.com  host的格式为 bucketname.endpoint
         String host = "https://" + bucket + "." + endpoint;
         // callbackUrl为上传回调服务器的URL，请将下面的IP和Port配置为自己的真实信息。

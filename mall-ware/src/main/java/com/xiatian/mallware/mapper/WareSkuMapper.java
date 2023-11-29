@@ -11,6 +11,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 */
 public interface WareSkuMapper extends BaseMapper<WareSku> {
 
+    void addStock(Long skuId, Long wareId, Integer skuNum);
 }
 
 

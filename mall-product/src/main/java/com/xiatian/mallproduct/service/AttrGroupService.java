@@ -3,8 +3,10 @@ package com.xiatian.mallproduct.service;
 import com.xiatian.mallproduct.entity.AttrGroup;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.xiatian.mallproduct.utils.PageUtils;
+import com.xiatian.mallproduct.vo.AttrGroupWithAttrsVo;
 
 import java.util.HashMap;
+import java.util.List;
 
 /**
 * @author XT189
@@ -15,4 +17,5 @@ public interface AttrGroupService extends IService<AttrGroup> {
 
     PageUtils queryPage(HashMap<String, Object> hashMap, Long catelogId);
 
+    List<AttrGroupWithAttrsVo> getAttrGroupWithAttrsByCatelogId(Long catelogId);
 }

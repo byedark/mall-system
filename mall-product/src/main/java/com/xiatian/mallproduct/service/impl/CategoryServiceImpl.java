@@ -1,15 +1,16 @@
 package com.xiatian.mallproduct.service.impl;
 
 import com.alibaba.cloud.commons.lang.StringUtils;
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.xiatian.mallproduct.entity.Brand;
 import com.xiatian.mallproduct.entity.Category;
 import com.xiatian.mallproduct.service.CategoryBrandRelationService;
 import com.xiatian.mallproduct.service.CategoryService;
 import com.xiatian.mallproduct.mapper.CategoryMapper;
 import com.xiatian.mallproduct.utils.Result;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.xiatian.mallproduct.vo.Catalog3Vo;
+import com.xiatian.mallproduct.vo.Catelog2Vo;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -89,6 +90,7 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category>
         }
     }
 
+    @Override
     public List<Long> findParentCategory(Long curCate, List<Long> result){
         result.add(curCate);
         Category pid = this.getById(curCate);
@@ -98,6 +100,39 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category>
             findParentCategory(parentCid,result);
         }
         return result;
+    }
+
+    @Override
+    public List<Category> getLevel1() {
+        return baseMapper.selectList(new QueryWrapper<Category>().eq("parent_cid", 0));
+    }
+
+    @Override
+    public Map<String, List<Catelog2Vo>> getCategory2() {
+        //先查出所有分类，然后再依次填入，如果循环查询数据库，查询次数太多容易导致性能下降。
+        List<Category> allCategorys = baseMapper.selectList(null);
+        List<Category> level1Categorys = getCategoryEntities(allCategorys,0L);
+        //封装成要返回的数据
+        return level1Categorys.stream().collect(Collectors.toMap(t->t.getCatId().toString(),v->{
+            List<Category> listCategory2 = getCategoryEntities(allCategorys,v.getCatId());
+            //封装里面的数组部分
+            return listCategory2.stream().map(item -> {
+                //初始化除了这个列表的其他列表信息
+                Catelog2Vo catelog2Vo = new Catelog2Vo(item.getCatId().toString(),
+                        item.getName(),v.getCatId().toString(),null);
+                List<Category> category3 = getCategoryEntities(allCategorys,item.getCatId());
+                List<Catalog3Vo> catalog3Vos = category3.stream().
+                        map(entity-> new Catalog3Vo(
+                                entity.getCatId().toString(),entity.getName(),item.getCatId().toString())).
+                        collect(Collectors.toList());
+                catelog2Vo.setCatalog3List(catalog3Vos);
+                return catelog2Vo;
+            }).collect(Collectors.toList());
+        }));
+    }
+
+    private List<Category> getCategoryEntities(List<Category> entityList, Long parent_cid) {
+        return entityList.stream().filter(item -> Objects.equals(item.getParentCid(), parent_cid)).collect(Collectors.toList());
     }
 
     public List<Category> getChildrens(Category parent,List<Category> listAll){

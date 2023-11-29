@@ -17,12 +17,14 @@
 		<module>renren-fast</module>
 		<module>mall-gateway</module>
 		<module>mall-third-party</module>
+		<module>mall-search</module>
 	</modules>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
 		<spring.boot.version>2.4.3</spring.boot.version>
 		<spring-cloud.version>2020.0.1</spring-cloud.version>
+		<elasticsearch.version>7.4.2</elasticsearch.version>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
@@ -94,6 +96,11 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-bootstrap</artifactId>
+		</dependency>
+<!--		Feign的过程也需要这个包而不是单单Nacos,Feign是基于Nacos的-->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-loadbalancer</artifactId>
 		</dependency>
 	</dependencies>
 
