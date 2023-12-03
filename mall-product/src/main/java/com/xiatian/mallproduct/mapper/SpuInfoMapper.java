@@ -2,6 +2,7 @@ package com.xiatian.mallproduct.mapper;
 
 import com.xiatian.mallproduct.entity.SpuInfo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Param;
 
 /**
 * @author XT189
@@ -11,6 +12,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 */
 public interface SpuInfoMapper extends BaseMapper<SpuInfo> {
 
+    void updateSpuStatus(@Param("spuId") Long spuId,@Param("code") int code);
 }
 
 

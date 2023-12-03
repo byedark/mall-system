@@ -240,8 +240,9 @@ public class AttrServiceImpl extends ServiceImpl<AttrMapper, Attr>
         IPage<Attr> page = this.page(new Query<Attr>().getPage(params), queryWrapper);
         return new PageUtils(page);
     }
+
+    @Override
+    public List<Long> selectSearchAttrIds(List<Long> attrIds) {
+        return baseMapper.selectSearchAttrIds(attrIds);
+    }
 }
-
-
-
-

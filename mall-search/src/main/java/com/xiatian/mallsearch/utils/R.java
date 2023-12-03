@@ -1,20 +1,9 @@
-/**
- * Copyright (c) 2016-2019 人人开源 All rights reserved.
- *
- * https://www.renren.io
- *
- * 版权所有，侵权必究！
- */
-
-package com.xiatian.mallproduct.utils;
+package com.xiatian.mallsearch.utils;
 
 import org.apache.http.HttpStatus;
 
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.TypeReference;
 
 /**
  * 返回数据
@@ -23,7 +12,6 @@ import com.alibaba.fastjson.TypeReference;
  */
 public class R extends HashMap<String, Object> {
 	private static final long serialVersionUID = 1L;
-	
 	public R() {
 		put("code", 0);
 		put("msg", "success");
@@ -67,11 +55,5 @@ public class R extends HashMap<String, Object> {
 
 	public Integer getCode() {
 		return (Integer) this.get("code");
-	}
-
-	public <T> T getData(TypeReference<T> typeReference){
-		// get("data") 默认是map类型 所以再由map转成string再转json
-		Object data = get("data");
-		return JSON.parseObject(JSON.toJSONString(data), typeReference);
 	}
 }

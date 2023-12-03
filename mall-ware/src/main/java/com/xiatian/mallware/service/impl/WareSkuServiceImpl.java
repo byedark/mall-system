@@ -12,13 +12,16 @@ import com.xiatian.mallware.mapper.WareSkuMapper;
 import com.xiatian.mallware.utils.PageUtils;
 import com.xiatian.mallware.utils.Query;
 import com.xiatian.mallware.utils.R;
+import com.xiatian.mallware.vo.SkuHasStockVo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
 * @author XT189
@@ -76,6 +79,18 @@ public class WareSkuServiceImpl extends ServiceImpl<WareSkuMapper, WareSku>
             wareSkuMapper.addStock(skuId, wareId, skuNum);
         }
         return price;
+    }
+
+    @Override
+    public List<SkuHasStockVo> getSkuHasStock(List<Long> skuIds) {
+        return skuIds.stream().map(item-> {
+            SkuHasStockVo skuHasStockVo = new SkuHasStockVo();
+            System.out.println(item);
+            Long count = wareSkuMapper.getSkuStock(item);
+            skuHasStockVo.setSkuId(item);
+            skuHasStockVo.setHasStock(count != null && count > 0);
+            return skuHasStockVo;
+        }).collect(Collectors.toList());
     }
 }
 

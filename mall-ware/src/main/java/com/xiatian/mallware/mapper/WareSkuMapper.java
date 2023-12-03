@@ -2,6 +2,7 @@ package com.xiatian.mallware.mapper;
 
 import com.xiatian.mallware.entity.WareSku;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Param;
 
 /**
 * @author XT189
@@ -12,6 +13,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 public interface WareSkuMapper extends BaseMapper<WareSku> {
 
     void addStock(Long skuId, Long wareId, Integer skuNum);
+
+    Long getSkuStock(@Param("skuId") Long skuId);
 }
 
 

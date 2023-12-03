@@ -28,5 +28,12 @@
     <select id="selectByCatelogId" resultType="com.xiatian.mallproduct.entity.Attr">
         select * from pms_attr where catelog_id = #{catelogId};
     </select>
+    <select id="selectSearchAttrIds" resultType="java.lang.Long">
+        SELECT attr_id From pms_attr where attr_id IN 
+        <foreach collection="attrIds" item="id" separator="," open = "(" close=")">
+            #{id}
+        </foreach>
+        and search_type = 1
+    </select>
 
 </mapper>

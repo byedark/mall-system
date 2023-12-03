@@ -16,6 +16,7 @@ public interface AttrMapper extends BaseMapper<Attr> {
 
     List<Attr> selectByCatelogId(@Param("catelogId") Long catelogId);
 
+    List<Long> selectSearchAttrIds(@Param("attrIds") List<Long> attrIds);
 }
 
 

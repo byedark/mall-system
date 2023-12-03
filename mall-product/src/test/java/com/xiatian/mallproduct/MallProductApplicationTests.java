@@ -36,4 +36,16 @@ class MallProductApplicationTests {
         // 关闭连接
         ossClient.shutdown();
     }
+    @Test
+    public void testRedis(){
+        //三步即可使用
+        //导入包
+        //配置host
+        //Stringredistemplate
+
+
+
+
+        return ;
+    }
 }

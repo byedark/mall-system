@@ -24,4 +24,6 @@ public interface ProductAttrValueService extends IService<ProductAttrValue> {
 
     @Transactional(rollbackFor = Exception.class)
     void updateSpuAttr(Long spuId, List<ProductAttrValue> entities);
+
+    List<ProductAttrValue> baseAttrListForSpu(Long spuId);
 }
