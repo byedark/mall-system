@@ -13,6 +13,7 @@ import com.xiatian.mallproduct.utils.Result;
 import com.xiatian.mallproduct.vo.Catalog3Vo;
 import com.xiatian.mallproduct.vo.Catelog2Vo;
 import org.springframework.beans.BeanUtils;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -109,10 +110,13 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category>
         return result;
     }
 
+    @Cacheable(value = {"category"},key = "'level1Categorys'")
     @Override
     public List<Category> getLevel1() {
+        System.out.println("一级分类查询");
         return baseMapper.selectList(new QueryWrapper<Category>().eq("parent_cid", 0));
     }
+
     @Override
     public Map<String, List<Catelog2Vo>> getCategory2(){
         String stringJson = stringRedisTemplate.opsForValue().get("catelogJSON");
