@@ -14,6 +14,7 @@ import com.xiatian.mallproduct.service.AttrService;
 import com.xiatian.mallproduct.utils.PageUtils;
 import com.xiatian.mallproduct.utils.Query;
 import com.xiatian.mallproduct.vo.AttrGroupWithAttrsVo;
+import com.xiatian.mallproduct.vo.SpuItemAttrGroup;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -79,6 +80,14 @@ public class AttrGroupServiceImpl extends ServiceImpl<AttrGroupMapper, AttrGroup
 
             return attrGroupWithAttrsVo;
         }).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<SpuItemAttrGroup> getAttrGroupWithAttrsBySpuId(Long spuId, Long catalogId) {
+        // 1.出当前Spu对应的所有属性的分组信息 以及当前分组下所有属性对应的值
+        // 1.1 查询所有分组
+        AttrGroupMapper baseMapper = this.getBaseMapper();
+        return baseMapper.getAttrGroupWithAttrsBySpuId(spuId, catalogId);
     }
 }
 

@@ -22,6 +22,8 @@ public class R extends HashMap<String, Object> {
 	private static final long serialVersionUID = 1L;
 	
 	public R() {
+		//默认0就是成功
+		//和游览器的200不太一样
 		put("code", 0);
 		put("msg", "success");
 	}

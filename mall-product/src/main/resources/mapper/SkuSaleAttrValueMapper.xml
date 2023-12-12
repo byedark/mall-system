@@ -17,4 +17,9 @@
         id,sku_id,attr_id,
         attr_name,attr_value,attr_sort
     </sql>
+    <select id="getSaleAttrsBuSpuId" resultType="com.xiatian.mallproduct.vo.ItemSaleAttrVo">
+        SELECT ssav.attr_id,ssav.attr_name,ssav.attr_value,GROUP_CONCAT(DISTINCT INFO.sku_id) sku_ids
+        FROM pms_sku_info INFO LEFT JOIN pms_sku_sale_attr_value ssav ON ssav.sku_id = INFO.sku_id
+        WHERE INFO.spu_id = #{spuId} GROUP BY ssav.attr_id,ssav.attr_name,ssav.`attr_value`
+    </select>
 </mapper>

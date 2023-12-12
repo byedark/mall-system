@@ -65,6 +65,20 @@ spring:
         - id: mall_route
           uri: lb://product
           predicates:
-            - Host=**.gulimall.com,gulimall.com
+            - Host=gulimall.com,item.gulimall.com
           filters:
             - RewritePath=/(?<segment>.*),/product/$\{segment}
+
+        - id: mall_search_route
+          uri: lb://search
+          predicates:
+            - Host=search.gulimall.com
+          filters:
+            - RewritePath=/(?<segment>.*),/search/$\{segment}
+
+        - id: mall_auth_route
+          uri: lb://auth-server
+          predicates:
+            - Host=auth.gulimall.com
+          filters:
+            - RewritePath=/(?<segment>.*),/auth-server/$\{segment}

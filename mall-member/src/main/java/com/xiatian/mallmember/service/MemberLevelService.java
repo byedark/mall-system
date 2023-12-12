@@ -14,4 +14,6 @@ import java.util.Map;
 public interface MemberLevelService extends IService<MemberLevel> {
 
     PageUtils findLevel(Map<String, Object> params);
+
+    MemberLevel getDefaultLevel();
 }

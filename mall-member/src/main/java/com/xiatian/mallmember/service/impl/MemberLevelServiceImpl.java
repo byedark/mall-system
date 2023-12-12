@@ -36,6 +36,11 @@ public class MemberLevelServiceImpl extends ServiceImpl<MemberLevelMapper, Membe
         page.setRecords(memberLevels);
         return new PageUtils(page);
     }
+
+    @Override
+    public MemberLevel getDefaultLevel() {
+        return memberLevelMapper.getDefault();
+    }
 }
 
 
