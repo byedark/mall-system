@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
 
@@ -19,10 +20,13 @@ public class IndexController {
     CategoryService categoryService;
 
     @GetMapping(value = {"/","/index.html"})
-    public String index(Model model){
+    public String index(Model model, HttpSession session){
         //首页渲染：获取一级分类数据
         List<Category> categoryEntities=categoryService.getLevel1();
         model.addAttribute("categories",categoryEntities);
+        Object l = session.getAttribute("loginUser");
+        if(l!=null)
+            System.out.println(l.toString());
         return "index";
     }
 

@@ -2,6 +2,8 @@ package com.xiatian.mallmember.service;
 
 import com.xiatian.mallmember.entity.Member;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.xiatian.mallmember.vo.SocialUser;
+import com.xiatian.mallmember.vo.UserLoginVo;
 import com.xiatian.mallmember.vo.UserRegistVo;
 
 /**
@@ -15,4 +17,8 @@ public interface MemberService extends IService<Member> {
     boolean checkPhoneUnique(String phone);
 
     boolean checkUserNameUnique(String userName);
+
+    Member login(UserLoginVo vo);
+
+    Member authLogin(SocialUser socialUser);
 }
