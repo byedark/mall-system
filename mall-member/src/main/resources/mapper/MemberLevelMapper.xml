@@ -23,4 +23,7 @@
         priviledge_free_freight,priviledge_member_price,priviledge_birthday,
         note
     </sql>
+    <select id="getDefault" resultType="com.xiatian.mallmember.entity.MemberLevel">
+        select * from ums_member_level where default_status = 1
+    </select>
 </mapper>

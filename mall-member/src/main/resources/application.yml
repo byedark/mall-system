@@ -10,7 +10,6 @@ server:
     context-path: /member
 
 spring:
-  # dev|test|prod
   profiles:
     active: dev
   # jackson

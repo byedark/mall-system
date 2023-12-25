@@ -21,4 +21,7 @@
         catalog_id,brand_id,weight,
         publish_status,create_time,update_time
     </sql>
+    <update id="updateSpuStatus">
+        UPDATE pms_spu_info SET publish_status = #{code},update_time = NOW() WHERE id = #{spuId}
+    </update>
 </mapper>

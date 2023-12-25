@@ -2,6 +2,12 @@ package com.xiatian.mallproduct.service;
 
 import com.xiatian.mallproduct.entity.SkuInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.xiatian.mallproduct.utils.PageUtils;
+import com.xiatian.mallproduct.vo.SkuItemVo;
+
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ExecutionException;
 
 /**
 * @author XT189
@@ -10,4 +16,15 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface SkuInfoService extends IService<SkuInfo> {
 
+    void saveSkuInfo(SkuInfo skuInfoEntity);
+
+    PageUtils queryPageByCondtion(Map<String, Object> params);
+
+    @Override
+    default boolean save(SkuInfo entity) {
+        return IService.super.save(entity);
+    }
+    List<SkuInfo> getSkusBySpuId(Long spuId);
+
+    SkuItemVo item(Long skuId) throws ExecutionException, InterruptedException;
 }

@@ -24,4 +24,5 @@
         sku_default_img,sku_title,sku_subtitle,
         price,sale_count
     </sql>
+
 </mapper>

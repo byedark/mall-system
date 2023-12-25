@@ -2,6 +2,7 @@ package com.xiatian.mallproduct.service;
 
 import com.xiatian.mallproduct.entity.CategoryBrandRelation;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.xiatian.mallproduct.utils.PageUtils;
 
 /**
 * @author XT189
@@ -10,4 +11,9 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface CategoryBrandRelationService extends IService<CategoryBrandRelation> {
 
+    void updateBrand(Long brandId, String name);
+
+    void saveDetailInfo(CategoryBrandRelation categoryBrandRelation);
+
+    void updateCategory(Long catId, String name);
 }

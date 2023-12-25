@@ -13,8 +13,16 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>mall-order</name>
     <description>mall-order</description>
-
-
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.rabbitmq</groupId>
+            <artifactId>amqp-client</artifactId>
+        </dependency>
+    </dependencies>
     <build>
         <plugins>
             <plugin>

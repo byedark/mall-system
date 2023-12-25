@@ -1,10 +1,10 @@
 package com.xiatian.mallproduct.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * 商品三级分类
@@ -36,6 +36,7 @@ public class Category implements Serializable {
     /**
      * 是否显示[0-不显示，1显示]
      */
+    @TableLogic(value = "1",delval = "0")
     private Integer showStatus;
 
     /**
@@ -57,6 +58,19 @@ public class Category implements Serializable {
      * 商品数量
      */
     private Integer productCount;
+
+    //首字母小写这个注解才能够，需要严格遵守Json格式才能生效
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
+    @TableField(exist = false)
+    private List<Category> children;
+
+    public List<Category> getChildren() {
+        return this.children;
+    }
+
+    public void setChildren(List<Category> children) {
+        this.children = children;
+    }
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

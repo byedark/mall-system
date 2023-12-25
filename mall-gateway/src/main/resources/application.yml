@@ -1,0 +1,84 @@
+server:
+  port: 88
+
+spring:
+  # dev|test|prod
+  profiles:
+    active: dev
+  # jackson
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  cloud:
+    gateway:
+      routes:
+        # 这里面有优先级问题，高优先级一定要放在前面
+        - id: product-route
+          uri: lb://product
+          predicates:
+            # 这里思考为什么api就不能被访问，因为网关的路由问题,正则表达式配上计算机网络的路由优先匹配规则
+            - Path=/api/product/**
+          filters:
+            - RewritePath=/api/product/(?<segment>.*),/product/$\{segment}
+
+        # 第三方
+        - id: third-party
+          uri: lb://thirdparty
+          predicates:
+            - Path=/api/third/party/**
+          filters:
+            - RewritePath=/api/third/party/(?<segment>.*),/thirdparty/$\{segment}
+
+        # 用户
+        - id: member-route
+          uri: lb://member
+          predicates:
+            - Path=/api/member/**
+          filters:
+            - RewritePath=/api/member/(?<segment>.*),/member/$\{segment}
+
+        # 库存
+        - id: ware-router
+          uri: lb://ware
+          predicates:
+            - Path=/api/ware/**
+          filters:
+            - RewritePath=/api/ware/(?<segment>.*),/ware/$\{segment}
+
+        # ES数据库
+        - id: elastic-search
+          uri: lb://search
+          predicates:
+            - Path=/api/search/**
+          filters:
+            - RewritePath=/api/search/(?<segment>.*),/search/$\{segment}
+
+        # 后台系统微服务
+        - id: renren-route
+          uri: lb://renren-fast
+          predicates:
+            - Path=/api/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/renren-fast/$\{segment}
+
+        # Nginx路由转发,在Nginx转发路由的时候会丢失包头的host项，需要在Nginx中配置
+        - id: mall_route
+          uri: lb://product
+          predicates:
+            - Host=gulimall.com,item.gulimall.com
+          filters:
+            - RewritePath=/(?<segment>.*),/product/$\{segment}
+
+        - id: mall_search_route
+          uri: lb://search
+          predicates:
+            - Host=search.gulimall.com
+          filters:
+            - RewritePath=/(?<segment>.*),/search/$\{segment}
+
+        - id: mall_auth_route
+          uri: lb://auth-server
+          predicates:
+            - Host=auth.gulimall.com
+          filters:
+            - RewritePath=/(?<segment>.*),/auth-server/$\{segment}

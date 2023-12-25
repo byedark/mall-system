@@ -14,6 +14,32 @@ spring:
   profiles:
     active: dev
   # jackson
+  # 规范时间格式
   jackson:
     time-zone: GMT+8
     date-format: yyyy-MM-dd HH:mm:ss
+  cloud:
+    alicloud:
+      access-key: LTAI5tQXq5Sd5Go9JRkyMcVd
+      secret-key: tsqxkfBdIX7OO7wXgFemgEOt0XjFj2
+      oss:
+        endpoint: oss-cn-beijing.aliyuncs.com
+    util:
+      enabled: false
+  thymeleaf:
+    cache: false
+  redis:
+    host: 43.143.154.173
+    port: 6379
+
+#logging:
+#  level:
+#    com.xiatian.mallproduct.mapper: debug
+#mybatis-plus:
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #开启sql日志
+
+# 利用log4j进行日志输出可以不像mybatis一样输出大量的日志信息，很多的row看的十分碍眼
+
+
+

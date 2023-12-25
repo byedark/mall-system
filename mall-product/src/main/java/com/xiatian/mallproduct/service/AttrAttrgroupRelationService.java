@@ -2,6 +2,9 @@ package com.xiatian.mallproduct.service;
 
 import com.xiatian.mallproduct.entity.AttrAttrgroupRelation;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.xiatian.mallproduct.vo.AttrGroupRelationVo;
+
+import java.util.List;
 
 /**
 * @author XT189
@@ -10,4 +13,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface AttrAttrgroupRelationService extends IService<AttrAttrgroupRelation> {
 
+    void saveBatchRelation(List<AttrGroupRelationVo> vos);
 }

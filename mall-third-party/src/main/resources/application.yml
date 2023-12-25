@@ -1,0 +1,33 @@
+server:
+  tomcat:
+    uri-encoding: UTF-8
+    threads:
+      max: 1000
+      min-spare: 30
+    connection-timeout: 5000ms
+  port: 10000
+  servlet:
+    context-path: /thirdparty
+
+spring:
+  # jackson
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  cloud:
+    alicloud:
+      access-key: LTAI5t9djdSgxWV5mJcu4dZN
+      secret-key: MgqN7RMfDIo9skWe1MYa8D5Plz4ANA
+      oss:
+        endpoint: oss-cn-beijing.aliyuncs.com
+        bucket: mall-xiatian
+    util:
+      enabled: false
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://43.143.154.173:3306/mall_admin?userSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: xiatian
+    password: SUm764156xt!
+
+
+

@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    nacos:
+      serverAddr: localhost:8848
+
+  application:
+    name: member

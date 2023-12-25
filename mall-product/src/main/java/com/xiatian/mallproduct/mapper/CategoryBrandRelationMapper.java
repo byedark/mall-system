@@ -2,6 +2,7 @@ package com.xiatian.mallproduct.mapper;
 
 import com.xiatian.mallproduct.entity.CategoryBrandRelation;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Param;
 
 /**
 * @author XT189
@@ -11,6 +12,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 */
 public interface CategoryBrandRelationMapper extends BaseMapper<CategoryBrandRelation> {
 
+    void updateCategory(@Param("catId") Long catId, @Param("name")String name);
 }
 
 

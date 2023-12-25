@@ -4,7 +4,10 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.xiatian.mallproduct.entity.SkuSaleAttrValue;
 import com.xiatian.mallproduct.service.SkuSaleAttrValueService;
 import com.xiatian.mallproduct.mapper.SkuSaleAttrValueMapper;
+import com.xiatian.mallproduct.vo.ItemSaleAttrVo;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
 * @author XT189
@@ -15,6 +18,11 @@ import org.springframework.stereotype.Service;
 public class SkuSaleAttrValueServiceImpl extends ServiceImpl<SkuSaleAttrValueMapper, SkuSaleAttrValue>
     implements SkuSaleAttrValueService{
 
+    @Override
+    public List<ItemSaleAttrVo> getSaleAttrsBySpuId(Long spuId) {
+        SkuSaleAttrValueMapper dao = this.baseMapper;
+        return dao.getSaleAttrsBuSpuId(spuId);
+    }
 }
 
 

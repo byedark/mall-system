@@ -2,6 +2,9 @@ package com.xiatian.mallproduct.service;
 
 import com.xiatian.mallproduct.entity.SkuSaleAttrValue;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.xiatian.mallproduct.vo.ItemSaleAttrVo;
+
+import java.util.List;
 
 /**
 * @author XT189
@@ -9,5 +12,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
 * @createDate 2023-11-07 15:02:23
 */
 public interface SkuSaleAttrValueService extends IService<SkuSaleAttrValue> {
-
+    List<ItemSaleAttrVo> getSaleAttrsBySpuId(Long spuId);
 }

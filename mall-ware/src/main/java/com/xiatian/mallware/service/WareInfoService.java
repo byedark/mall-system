@@ -2,6 +2,9 @@ package com.xiatian.mallware.service;
 
 import com.xiatian.mallware.entity.WareInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.xiatian.mallware.utils.PageUtils;
+
+import java.util.Map;
 
 /**
 * @author XT189
@@ -10,4 +13,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface WareInfoService extends IService<WareInfo> {
 
+    PageUtils getWare(Map<String, Object> map);
 }

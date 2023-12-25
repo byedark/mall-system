@@ -17,4 +17,21 @@
         attr_group_id,attr_group_name,sort,
         descript,icon,catelog_id
     </sql>
+    <!-- 封装自定义结果集,蛮重要的 -->
+    <resultMap id="SpuItemAttrGroupVo" type="com.xiatian.mallproduct.vo.SpuItemAttrGroup">
+        <result column="attr_group_name" property="groupName" javaType="string"/>
+        <collection property="attrs" ofType="com.xiatian.mallproduct.vo.SpuBaseAttrVo">
+            <result column="attr_name" property="attrName" javaType="string"/>
+            <result column="attr_value" property="attrValue" javaType="string"/>
+        </collection>
+    </resultMap>
+
+    <select id="getAttrGroupWithAttrsBySpuId" resultMap="SpuItemAttrGroupVo">
+        SELECT pav.`spu_id`, ag.`attr_group_name`, ag.`attr_group_id`, aar.`attr_id`, attr.`attr_name`,pav.`attr_value`
+        FROM `pms_attr_group` ag
+                 LEFT JOIN `pms_attr_attrgroup_relation` aar ON aar.`attr_group_id` = ag.`attr_group_id`
+                 LEFT JOIN `pms_attr` attr ON attr.`attr_id` = aar.`attr_id`
+                 LEFT JOIN `pms_product_attr_value` pav ON pav.`attr_id` = attr.`attr_id`
+        WHERE ag.catelog_id = #{catalogId} AND pav.`spu_id` = #{spuId}
+    </select>
 </mapper>

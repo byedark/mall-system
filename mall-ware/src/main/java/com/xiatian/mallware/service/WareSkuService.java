@@ -2,6 +2,10 @@ package com.xiatian.mallware.service;
 
 import com.xiatian.mallware.entity.WareSku;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.xiatian.mallware.vo.SkuHasStockVo;
+
+import java.util.List;
+import java.util.Map;
 
 /**
 * @author XT189
@@ -10,4 +14,9 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface WareSkuService extends IService<WareSku> {
 
+    Object getSkuList(Map<String, Object> map);
+
+    double addStock(Long skuId, Long wareId, Integer skuNum);
+
+    List<SkuHasStockVo> getSkuHasStock(List<Long> skuIds);
 }
